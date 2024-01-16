@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator Using HTML,CSS,JavaScript</title>
+</head>
+<body>
+    <div class="interface">
+
+      <div id="calculator" class="calculator">
+
+        <div id="display" class="calculator-screen"></div>
+
+
+          <div id="buttons" class="calculator-keys">
+
+            <button onclick="appendToDisplay('+')" class="operator">+</button>
+            <button onclick="appendToDisplay('-')" class="operator">-</button>
+            <button onclick="appendToDisplay('*')" class="operator">&times;</button>
+            <button onclick="appendToDisplay('/')" class="operator">&divide;</button>
+
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+
+
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')" class="decimal">.</button>
+            <button onclick="clearDisplay()" class="all-clear">AC</button>
+
+            <button onclick="calculate()" class="equal-sign operator">=</button>
+
+          </div>
+      </div>
+    </div>
+
+<style>
+      html {
+        font-size: 62.5%;
+        box-sizing: border-box;
+        background-color: 73A571;
+      }
+
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+      }
+
+      .interface {
+        position: absolute;
+        background-color: #464646;
+        height: 550px;
+        width: 430px;
+        margin-left: 500px;
+        margin-top: 100px;
+        border: 1px solid #00000;
+        border-radius: 30px;
+        box-shadow:  1px 8px black;
+      }
+
+      .calculator {
+        position: absolute;
+        top: 10%;
+        left: 9%;
+        width: 360px;
+      }
+
+      .calculator-screen {
+        font-family: 'Scientific Calculator LCD', sans-serif;
+        width: 100%;
+        font-size: 6rem;
+        border: 1px solid #252525;
+        border-radius: 20px;
+        height: 80px;
+        background-color: #BDDEC9;
+        text-align: right;
+        padding-right: 10px;
+        box-shadow:  1px 7px 2px black;
+      }
+
+      button {
+        height: 60px;
+        width: 75px;
+        margin-left: -7px;
+        background-color: #fff;
+        border-radius: 10px;
+        border: 1px solid #c4c4c4;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        box-shadow:  1px 2px black;
+      }
+
+      button:hover {
+        background-color: #eaeaea;
+      }
+
+      .operator {
+        color: #337cac;
+        font-size: 3rem;
+        border-radius: 10px;
+        border: 1px solid #c4c4c4;
+      }
+
+      .all-clear {
+        background-color: #f0595f;
+        border-color: #b0353a;
+        color: #fff;
+      }
+
+      .all-clear:hover {
+        background-color: #f17377;
+      }
+
+      .equal-sign {
+        background-color: #FFA500;
+        color: #fff;
+        border-radius: 10px;
+        border: 1px solid #c4c4c4;
+        grid-row-start: 2;
+        grid-row-end: 6;
+        height: 100%;
+        grid-column-start: 4;
+      }
+
+      .equal-sign:hover {
+        background-color: #ff8c00;
+      }
+
+      .calculator-keys {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+        padding: 20px;
+      }
+</style>
+
+<script>
+        let display = document.getElementById('display');
+        function appendToDisplay(value) {
+            display.textContent += value;
+        }
+
+        function calculate() {
+            try {
+                display.textContent = eval(display.textContent);
+            } catch (error) {
+                display.textContent = 'Error';
+            }
+        }
+
+        function clearDisplay() {
+            display.textContent = '';
+        }
+    </script>
+</body>
+</html>
